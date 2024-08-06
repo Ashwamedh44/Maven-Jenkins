@@ -55,8 +55,8 @@ pipeline {
             script {
                 emailext (
                     body: """
-                    Hey, The build was successful !!!
-                    Build ${currentBuild.currentResult}: Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})
+                    Hey, The build was ${currentBuild.currentResult}:!!!
+                    Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})
                     Build URL: ${env.BUILD_URL}
                     """,
                     subject: "Build ${currentBuild.currentResult}: Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})",
