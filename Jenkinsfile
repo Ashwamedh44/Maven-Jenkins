@@ -42,7 +42,7 @@ pipeline {
 				Build URL: ${env.BUILD_URL}
 						""",
 			   subject: "Build ${currentBuild.currentResult}: Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})",
-			   to: 'arvindrana620445@gmail.com',
+			   to: 'ashwamedh.arote25@gmail.com',
 			   attachLog: true
 			   )
 	}
