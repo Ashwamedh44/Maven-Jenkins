@@ -36,7 +36,6 @@ pipeline {
                     -Dsonar.sources=src\\main\\java\
                     -Dsonar.projectKey=jenkins-ashwamedh_jenkins-java \
                     -Dsonar.organization=Jenkins_Ashwamedh \
-                    -Dsonar.host.url=https://sonarcloud.io \
                     -Dsonar.login=5a34cfc296f871ba413ae50c2a5a596d73f3d5ee
                 """
             }
