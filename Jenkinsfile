@@ -32,7 +32,7 @@ pipeline {
                     withSonarQubeEnv('SonarQube') {
                 bat """
                     mvn sonar:sonar \
-                    -Dsonar.sources=HelloWorldMaven\\src\\main\\java\
+                    -Dsonar.sources=src\\main\\java\
                     -Dsonar.projectKey=jenkins-ashwamedh_jenkins-java \
                     -Dsonar.organization=Jenkins_Ashwamedh \
                     -Dsonar.host.url=https://sonarcloud.io \
