@@ -26,6 +26,7 @@ pipeline {
         }
         
         stage('SonarCloud Analysis') {
+            script{
             steps {
                 // Run SonarCloud analysis
                 def scannerHome = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
@@ -38,6 +39,7 @@ pipeline {
                     -Dsonar.host.url=https://sonarcloud.io \
                     -Dsonar.login=5a34cfc296f871ba413ae50c2a5a596d73f3d5ee
                 """
+            }
             }
             }
         }
