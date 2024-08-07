@@ -32,7 +32,7 @@ pipeline {
                 def scannerHome = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                     withSonarQubeEnv('SonarQube') {
                 bat """
-                    mvn sonar:sonar \
+                    C:\\ProgramData\\Jenkins\\.jenkins\\tools\\hudson.plugins.sonar.SonarRunnerInstallation\\sonarqubescanner\\bin\\sonar-scanner \
                     -Dsonar.sources=src\\main\\java\
                     -Dsonar.projectKey=jenkins-ashwamedh_jenkins-java \
                     -Dsonar.organization=Jenkins_Ashwamedh \
