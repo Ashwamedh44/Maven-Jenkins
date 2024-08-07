@@ -20,7 +20,7 @@ pipeline {
         stage('Pre-Build') {
             steps {
                 script {
-                    bat 'for /r src/main/java/com/mycompany/app %%f in (*.java) do javac %%f'
+                    bat 'for /r src/main/java/com/jenkins_example/app %%f in (*.java) do javac %%f'
                 }
             }
         }
