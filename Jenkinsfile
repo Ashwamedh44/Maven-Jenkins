@@ -47,18 +47,19 @@ pipeline {
             }
         }
         stage('Quality Gate Check') {
-            steps {
-                script {
-                    // Wait for SonarCloud quality gate status
-                    timeout(time: 10, unit: 'MINUTES') {
-                        def qualityGate = waitForQualityGate()
-                        if (qualityGate.status != 'OK') {
-                            error("Quality gate failed: ${qualityGate.status}. Aborting build.")
-                        }
-                    }
+    steps {
+        script {
+            timeout(time: 10, unit: 'MINUTES') {
+                def qualityGate = waitForQualityGate()
+                echo "Quality Gate Status: ${qualityGate.status}"
+                if (qualityGate.status != 'OK') {
+                    error("Quality gate failed: ${qualityGate.status}. Aborting build.")
                 }
             }
         }
+    }
+}
+
 
         stage('User Confirmation') {
             steps {
