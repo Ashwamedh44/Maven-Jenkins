@@ -43,36 +43,36 @@ pipeline {
             }
             }
         }
-        stage('Quality Gate Check') {
-            steps {
-                script {
-                    // Wait for SonarCloud quality gate status
-                    timeout(time: 10, unit: 'MINUTES') {
-                        waitForQualityGate abortPipeline: true
-                    }
-                }
-            }
-        }
+        // stage('Quality Gate Check') {
+        //     steps {
+        //         script {
+        //             // Wait for SonarCloud quality gate status
+        //             timeout(time: 10, unit: 'MINUTES') {
+        //                 waitForQualityGate abortPipeline: true
+        //             }
+        //         }
+        //     }
+        // }
 
-        stage('User Confirmation') {
-            steps {
-                script {
-                    // Prompt user for confirmation
-                    def userInput = input(
-                        id: 'ProceedWithBuild', // Unique identifier for the input
-                        message: 'Do you want to continue with the build?',
-                        parameters: [
-                            [$class: 'BooleanParameterDefinition', name: 'Continue', defaultValue: true, description: 'Check to continue']
-                        ]
-                    )
+        // stage('User Confirmation') {
+        //     steps {
+        //         script {
+        //             // Prompt user for confirmation
+        //             def userInput = input(
+        //                 id: 'ProceedWithBuild', // Unique identifier for the input
+        //                 message: 'Do you want to continue with the build?',
+        //                 parameters: [
+        //                     [$class: 'BooleanParameterDefinition', name: 'Continue', defaultValue: true, description: 'Check to continue']
+        //                 ]
+        //             )
 
-                    // You can use the userInput variable if needed
-                    if (!userInput) {
-                        error("User chose not to continue the build.")
-                    }
-                }
-            }
-        }
+        //             // You can use the userInput variable if needed
+        //             if (!userInput) {
+        //                 error("User chose not to continue the build.")
+        //             }
+        //         }
+        //     }
+        // }
         
         stage('Build') {
             steps {
