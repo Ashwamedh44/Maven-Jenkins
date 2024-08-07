@@ -57,19 +57,35 @@ pipeline {
         }
     }
     post {
-        always {
-            script {
-                emailext (
-                    body: """
-                    Hey, The build was ${currentBuild.currentResult}:!!!
-                    Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})
-                    Build URL: ${env.BUILD_URL}
-                    """,
-                    subject: "Build ${currentBuild.currentResult}: Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})",
-                    to: 'ashwamedh.arote25@gmail.com',
-                    attachLog: true
-                )
-            }
+    success {
+        script {
+            emailext (
+                body: """
+                Hey, The build was successful!
+                Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})
+                Build URL: ${env.BUILD_URL}
+                """,
+                subject: "Build Success: Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})",
+                to: 'ashwamedh.arote25@gmail.com',
+                attachLog: true
+            )
         }
     }
+    failure {
+        script {
+            emailext (
+                body: """
+                Hey, The build failed!
+                Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})
+                Build URL: ${env.BUILD_URL}
+                """,
+                subject: "Build Failure: Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})",
+                to: 'ashwamedh.arote25@gmail.com',
+                attachLog: true
+            )
+        }
+    }
+    
+}
+
 }
