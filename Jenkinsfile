@@ -34,8 +34,8 @@ pipeline {
                 bat """
                     C:\\ProgramData\\Jenkins\\.jenkins\\tools\\hudson.plugins.sonar.SonarRunnerInstallation\\SonarQube\\bin\\sonar-scanner\
                     -Dsonar.sources=src\\main\\java\
-                    -Dsonar.projectKey=jenkins-ashwamedh_jenkins-java \
-                    -Dsonar.organization=Jenkins_Ashwamedh \
+                    -Dsonar.projectKey=jenkins-ashwamedh_jenkins-java\
+                    -Dsonar.organization=Jenkins_Ashwamedh\
                     -Dsonar.login=5a34cfc296f871ba413ae50c2a5a596d73f3d5ee
                 """
             }
