@@ -28,13 +28,17 @@ pipeline {
         stage('SonarCloud Analysis') {
             steps {
                 // Run SonarCloud analysis
+                def scannerHome = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                    withSonarQubeEnv('SonarQube') {
                 bat """
-                    mvn sonar:sonar ^
-                    -Dsonar.projectKey=jenkins-ashwamedh_jenkins-java ^
-                    -Dsonar.organization=Jenkins_Ashwamedh ^
-                    -Dsonar.host.url=https://sonarcloud.io ^
+                    mvn sonar:sonar \
+                    -Dsonar.sources=HelloWorldMaven\\src\\main\\java\
+                    -Dsonar.projectKey=jenkins-ashwamedh_jenkins-java \
+                    -Dsonar.organization=Jenkins_Ashwamedh \
+                    -Dsonar.host.url=https://sonarcloud.io \
                     -Dsonar.login=5a34cfc296f871ba413ae50c2a5a596d73f3d5ee
                 """
+            }
             }
         }
         
