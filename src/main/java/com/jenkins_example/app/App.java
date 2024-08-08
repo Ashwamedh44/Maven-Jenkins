@@ -1,8 +1,4 @@
 package com.jenkins_example.app;
-
-/**
- * Hello world!
- */
 public class App {
 
     private static final String MESSAGE = "Hello World!";
@@ -10,7 +6,10 @@ public class App {
     public App() {}
 
     public static void main(String[] args) {
-        System.out.println(MESSAGE);
+        int a=5;
+        int b=10;
+        int c=a+b;
+        System.out.println(c);
     }
 
     public String getMessage() {
