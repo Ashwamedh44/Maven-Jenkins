@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    parameters {
-        booleanParam(name: 'PROCEED_WITH_BUILD', defaultValue: true, description: 'Check to continue with the build')
-    }
+    // parameters {
+    //     booleanParam(name: 'PROCEED_WITH_BUILD', defaultValue: true, description: 'Check to continue with the build')
+    // }
     // environment {
     //     SONAR_TOKEN = credentials('5a34cfc296f871ba413ae50c2a5a596d73f3d5ee') // Replace with your actual credentials ID
     // }
